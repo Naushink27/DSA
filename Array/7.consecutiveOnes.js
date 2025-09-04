@@ -13,5 +13,5 @@ function maxZeroes(arr){
     return Math.max(maxCount,currCount)
 }
 
-let arr=[0,1,0,0,1,1,1,0,0,0,1,1,0]
+let arr=[0,1,0,0,1,1,1,0,0,1,1,0]
 console.log(maxZeroes(arr))
