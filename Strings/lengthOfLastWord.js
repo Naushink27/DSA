@@ -1,14 +1,19 @@
-// const lengthOfLastWord = function(s) {
+//Approach 1: Using built in functions
 
-//     s=s.trim();
-//     s=s.split(" ");
-//     return s[s.length-1].length;
-// }
+/*
+const lengthOfLastWord = function(s) {
+
+    s=s.trim();
+    s=s.split(" ");
+    return s[s.length-1].length;
+}
+*/
 
 
 
-// Optimized Code
+// Approach 2
 
+/*
 const lengthOfLastWord = function(s) {
     //index of last character
 
@@ -32,5 +37,26 @@ const lengthOfLastWord = function(s) {
     }
     return count;
 }
+    */
 
-console.log(lengthOfLastWord("Hello World  "))
+//Approach 3
+const lengthOfLastWord = function(s) {
+
+    let n=s.length-1;
+
+    let count=0;
+
+    while(n>=0){
+        if(s[n]!==" "){
+            ++count;
+        }
+
+        else if(count>0){
+            break;
+        }
+        --n;
+    }
+    return count;
+}
+
+console.log(lengthOfLastWord("Hello  kirs  World  "))
