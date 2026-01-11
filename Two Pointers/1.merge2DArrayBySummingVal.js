@@ -70,3 +70,47 @@ var mergeArrays = function(nums1, nums2) {
 }
 
 console.log(mergeArrays([[1,2],[2,3],[4,5]],[[1,4],[3,2],[4,1]]))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Revision 1:
+
+var mergeArrays1 = function(nums1, nums2) {
+let i=0;
+let j=0;
+let res=[];
+
+while(i<nums1.length && j<nums2.length){
+    if(nums1[i][0]<nums2[j][0]){
+        res.push(nums1[i]);
+        i++;
+    }
+    else if(nums1[i][0]> nums2[j][0]){
+        res.push(nums2[j])
+        j++;
+    }
+
+    else{
+        res.push([nums2[j][0],nums1[i][1]+nums2[j][1]]);
+        i++;
+        j++;
+    }
+}
+return res;
+}
+
+console.log(mergeArrays1([[1,2],[2,3],[4,5]],[[1,4],[3,2],[4,1]]))

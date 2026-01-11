@@ -31,3 +31,43 @@ var pivotArray = function(nums, pivot) {
 
 //Example Usage
 console.log(pivotArray([9,12,5,10,14,3,10],10));
+
+
+
+
+//Revision 1:
+
+var pivotArray1 = function(nums, pivot) {
+    let result=[];
+
+    //First part: elements less than pivot
+    for(let i=0;i<nums.length;i++){
+        if(nums[i]<pivot){
+            result.push(nums[i]);
+        }
+    }
+
+    //Second part: elements equal to pivot
+    for(let i=0;i<nums.length;i++){
+        if(nums[i]===pivot){
+            result.push(nums[i]);
+        }
+    }
+    //Third part: elements greater than pivot
+    for(let i=0;i<nums.length;i++){
+        if(nums[i]>pivot){
+            result.push(nums[i]);
+        }
+    }
+    return result;
+}
+//Example Usage
+console.log(pivotArray1([9,12,5,10,14,3,10],10));
+
+
+
+
+
+
+
+

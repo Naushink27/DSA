@@ -26,3 +26,33 @@ var sortArrayByParity2 = function(nums) {
 }
 let res=sortArrayByParity2([3,1,2,4,8,9,6])
 console.log(res);
+
+
+//Revision 1:
+
+var sortArrayByParity22 = function(nums) {
+    let i=0;
+    let j=1;
+
+    while(i<nums.length && j<nums.length){
+        if(nums[i]%2===0){
+            i+=2;
+
+        }
+        else if(nums[j]%2===1){
+
+            j+=2;
+        }
+        else{
+            //swap
+            let temp=nums[i];
+            nums[i]=nums[j];
+            nums[j]=temp;
+            i+=2;
+            j+=2;
+        }
+    }
+    return nums;
+}
+let res1=sortArrayByParity22([3,1,2,4,8,9,6])
+console.log(res1);
