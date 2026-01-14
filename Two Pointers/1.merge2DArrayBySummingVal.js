@@ -109,8 +109,18 @@ while(i<nums1.length && j<nums2.length){
         i++;
         j++;
     }
+    
 }
-return res;
+while(i<nums1.length){
+    res.push(nums1[i]);
+    i++;
+}
+while(j<nums2.length){
+    res.push(nums2[j]);
+    j++;
 }
 
+
+return res;
+}
 console.log(mergeArrays1([[1,2],[2,3],[4,5]],[[1,4],[3,2],[4,1]]))
