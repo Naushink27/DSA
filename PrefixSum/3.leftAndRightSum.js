@@ -23,4 +23,4 @@ var leftRightDifference = function(nums) {
 }
 
 //Example usage:
-console.log(leftRightDifference([10,4,8,3])) //[1, 5, 3, 7]
+console.log(leftRightDifference([10,4,8,3])) //[15, 1, 11, 22]
