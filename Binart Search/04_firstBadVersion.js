@@ -12,7 +12,7 @@ var firstBadVersion = function(n) {
             right=mid
         }
     }
-    return right;
+    return right; // or return left; both will be the same at the end of the loop
 }
 
 // Example usage:
