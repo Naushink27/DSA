@@ -72,3 +72,25 @@ var inOrder=function (root) {
     return ans;
 }
 console.log(inOrder(root))
+
+//iterative solution
+
+var inOrderIterative = function(root) {
+    if(!root) return [];
+    let stack = [];
+    let curr=root;
+    let ans=[];
+
+    while(curr ||stack.length){
+        while(curr){
+            stack.push(curr)
+            curr=curr.left;
+        }
+        curr=stack.pop()
+        ans.push(curr.val)
+        curr=curr.right
+    }
+    return ans;
+}
+
+console.log(inOrderIterative(root))

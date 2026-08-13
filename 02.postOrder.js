@@ -72,3 +72,51 @@ var postOrder=function (root) {
     return ans;
 }
 console.log(postOrder(root))
+
+//Iterative solution
+
+var postOrderIterative = function(root) {
+    if(!root) return [];
+    let ans=[]
+    let s1=[root]
+    let s2=[]
+
+    while(s1.length){
+        let curr=s1.pop()
+        s2.push(curr)
+       curr.left && s1.push(curr.left)
+        curr.right && s1.push(curr.right)
+
+    }
+
+    while(s2.length){
+        ans.push(s2.pop().val)
+    }
+    return ans;
+
+}
+console.log(postOrderIterative(root))
+
+//single stack iterative solution
+
+var postOrderIterativeSingleStack = function(root) {
+    let s1=[]
+    let ans=[]
+    let curr=root
+    let lastVisited=null
+
+    while(curr || s1.length){
+        while(curr){
+            s1.push(curr)
+            curr=curr.left
+        }
+        let peekElement=s1[s1.length-1]
+
+        if(peekElement.right && peekElement.right!==lastVisited){
+            curr=peekELement.right
+        }
+        ans.push(peekElement.val)
+        lastVisited=s1.pop()
+    }
+    return ans;
+}
