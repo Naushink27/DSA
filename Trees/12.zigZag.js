@@ -1,0 +1,89 @@
+/**
+ * Binary Tree Nodeeee
+ */
+function TreeNode(val, left = null, right = null) {
+    this.val = val;
+    this.left = left;
+    this.right = right;
+}
+
+
+/**
+ * Create a complex binary tree
+ *
+ *                 1
+ *              /     \
+ *             2       3
+ *           /  \     / \
+ *          4    5   6   7
+ *         / \    \      / \
+ *        8   9   10    11 12
+ *           /          \
+ *          13           14
+ *                        \
+ *                         15
+ */
+const root = new TreeNode(
+    1,
+    new TreeNode(
+        2,
+        new TreeNode(
+            4,
+            new TreeNode(8),
+            new TreeNode(
+                9,
+                new TreeNode(13),
+                null
+            )
+        ),
+        new TreeNode(
+            5,
+            null,
+            new TreeNode(10)
+        )
+    ),
+    new TreeNode(
+        3,
+        new TreeNode(6),
+        new TreeNode(
+            7,
+            new TreeNode(
+                11,
+                null,
+                new TreeNode(14, null, new TreeNode(15))
+            ),
+            new TreeNode(12)
+        )
+    )
+);
+
+
+const zigZagTraversal = function(root) {
+    let level=0
+    let ans=[]
+
+    let q=[root]
+    while(q.length){
+        let levelArr=[]
+        let levelSize=q.length
+
+        for(let i=0;i<levelSize;i++){
+            let curr=q.shift()
+
+            if(level%2==0){
+                levelArr.push(curr.val)
+
+            }
+            else{
+                levelArr.unshift(curr.val)
+            }
+            curr.left && q.push(curr.left)
+            curr.right && q.push(curr.right)
+
+        }
+        ans.push(levelArr)
+        level++
+    }
+    return ans
+}
+console.log(zigZagTraversal(root))
